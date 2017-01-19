@@ -1,7 +1,7 @@
 Ansible Role: virtualbox-desktop-guest
 =====================
 
-Build status for this role: [![Build Status](https://travis-ci.org/PeterMosmans/ansible-role-virtualbox-guest.svg)](https://travis-ci.org/PeterMosmans/ansible-role-virtualbox-guest)
+Build status for this role: [![Build Status](https://travis-ci.org/fridanellros/ansible-role-virtualbox-desktop-guest.svg)](https://travis-ci.org/fridanellros/ansible-role-virtualbox-desktop-guest)
 
 This role downloads, installs and configures the requested VirtualBox guest additions with x11 support. Tailored for running on localhost with local connection. 
 
