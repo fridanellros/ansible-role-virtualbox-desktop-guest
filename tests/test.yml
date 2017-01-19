@@ -2,4 +2,4 @@
 - hosts: localhost
   remote_user: root
   roles:
-    - ansible-role-virtualbox-guest
+    - ansible-role-virtualbox-desktop-guest
