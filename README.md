@@ -25,20 +25,14 @@ Available variables are listed below, along with default values
 
 **virtualbox_remove_os_packages**: A boolean stating whether to remove any previously installed VirtualBox packages. If not specified, defaults to no.
 
-**virtualbox_version**: The requested version of VirtualBox. If the current version does not match that version, it will try to (re)install VirtualBox guest additions. If set to `auto`, it will try to determine the VirtualBox version of the host system. The defaults can be found in ```defaults/main.yml```. Note: This will not work running on the guest!
-```
-virtualbox_version: auto
-```
+**virtualbox_version**: The requested version of VirtualBox. If the current version does not match that version, it will try to (re)install VirtualBox guest additions. The defaults can be found in ```defaults/main.yml```. 
 
-**virtualbox_x11**: A boolean stating whether VirtualBox guest additions will be compiled with x11 support. If not specified, defaults to no.
-
-
+Note: Auto option has been removed in this version due to running on the guest!
 
 Dependencies
 ------------
 
 None.
-
 
 
 Example Playbook
