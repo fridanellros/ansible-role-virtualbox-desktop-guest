@@ -99,8 +99,8 @@
     register: installed
     when: virtualbox_keep is undefined or not virtualbox_keep
 
-  - name: Build and install x11 VBoxGuestAdditions from file
-    shell: /bin/bash /media/cdrom/VBoxLinuxAdditions.run
+  - name: Build and install VBoxGuestAdditions from file
+    shell: /bin/bash /media/cdrom/VBoxLinuxAdditions.run --nox11 #otherwise interactive prompt
     ignore_errors: yes
 
   - name: Unmount VBoxGuestAdditions
@@ -119,19 +119,65 @@
       cache_valid_time=86400
     when: installed is defined and (virtualbox_keep is undefined or not virtualbox_keep)
 
-  - name: Remove build logfiles, artefacts and ISO files
+  - name: Remove build logfiles, artefacts and ISO files one bye one due to sudo file items bug #"ERROR! privilege output closed while waiting for password prompt
     file: name={{ item}} follow=yes state=absent
     with_items:
       - "/opt/VBoxGuestAdditions-{{ virtualbox_version }}/src"
+    ignore_errors: yes
+
+  - name: Remove build logfiles, artefacts and ISO files one bye one due to sudo file items bug #"ERROR! privilege output closed while waiting for password prompt
+    file: name={{ item}} follow=yes state=absent
+    with_items:
       - /root/VBoxGuestAdditions.iso
+    ignore_errors: yes
+
+  - name: Remove build logfiles, artefacts and ISO files one bye one due to sudo file items bug #"ERROR! privilege output closed while waiting for password prompt
+    file: name={{ item}} follow=yes state=absent
+    with_items:
       - /tmp/before.txt
+    ignore_errors: yes
+
+  - name: Remove build logfiles, artefacts and ISO files one bye one due to sudo file items bug #"ERROR! privilege output closed while waiting for password prompt
+    file: name={{ item}} follow=yes state=absent
+    with_items:
       - /tmp/after.txt
+    ignore_errors: yes
+
+  - name: Remove build logfiles, artefacts and ISO files one bye one due to sudo file items bug #"ERROR! privilege output closed while waiting for password prompt
+    file: name={{ item}} follow=yes state=absent
+    with_items:
       - "/usr/src/vboxguest-{{ virtualbox_version }}"
+    ignore_errors: yes
+
+  - name: Remove build logfiles, artefacts and ISO files one bye one due to sudo file items bug #"ERROR! privilege output closed while waiting for password prompt
+    file: name={{ item}} follow=yes state=absent
+    with_items:
       - /var/lib/dkms/vboxguest
+    ignore_errors: yes
+
+  - name: Remove build logfiles, artefacts and ISO files one bye one due to sudo file items bug #"ERROR! privilege output closed while waiting for password prompt
+    file: name={{ item}} follow=yes state=absent
+    with_items:
       - /var/log/vboxadd-install.log
+    ignore_errors: yes
+
+  - name: Remove build logfiles, artefacts and ISO files one bye one due to sudo file items bug #"ERROR! privilege output closed while waiting for password prompt
+    file: name={{ item}} follow=yes state=absent
+    with_items:
       - /var/log/vboxadd-install-x11.log
+    ignore_errors: yes
+
+  - name: Remove build logfiles, artefacts and ISO files one bye one due to sudo file items bug #"ERROR! privilege output closed while waiting for password prompt
+    file: name={{ item}} follow=yes state=absent
+    with_items:
       - /var/log/VBoxGuestAdditions.log
+    ignore_errors: yes
+
+  - name: Remove build logfiles, artefacts and ISO files one bye one due to sudo file items bug #"ERROR! privilege output closed while waiting for password prompt
+    file: name={{ item}} follow=yes state=absent
+    with_items:
       - /var/log/VBoxGuestAdditions-uninstall.log
+    ignore_errors: yes
 
   - name: Remove cdrom fstab entry
     lineinfile: >
