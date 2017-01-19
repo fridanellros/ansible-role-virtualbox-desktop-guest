@@ -44,11 +44,11 @@ None.
 Example Playbook
 ----------------
 ```
-- hosts: all
+- hosts: localhost
+  connection: local
   become: yes
-  become_method: sudo
   roles:
-    - role: fridanellros.virtualbox-desktop-guest
+    - {role: fridanellros.virtualbox-desktop-guest, virtualbox_version: x.y.zz}
 ```
 This example will install VirtualBox guest additions, and will not keep the build packages to the system if they needed to be installed for this role.
 
