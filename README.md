@@ -48,7 +48,7 @@ Example Playbook
   become: yes
   become_method: sudo
   roles:
-    - role: PeterMosmans.virtualbox-guest
+    - role: fridanellros.virtualbox-desktop-guest
 ```
 This example will install VirtualBox guest additions, and will not keep the build packages to the system if they needed to be installed for this role.
 
