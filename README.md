@@ -1,10 +1,7 @@
 Ansible Role: virtualbox-guest
 =====================
 
-Build status for this role: [![Build Status](https://travis-ci.org/PeterMosmans/ansible-role-virtualbox-guest.svg)](https://travis-ci.org/PeterMosmans/ansible-role-virtualbox-guest)
-
-
-This role installs and configures the requested VirtualBox guest additions. Expected is either a mounted ISO containing the VBoxGuestAdditions, or an ISO file in /root/VBoxGuestAdditions.iso.
+This role downloads, installs and configures the requested VirtualBox guest additions with x11 support. Tailored for running on localhost with local connection. 
 
 Requirements
 ------------
@@ -63,6 +60,6 @@ GPLv3
 Author Information
 ------------------
 
-Created by Peter Mosmans.
+Adapted/forked by Frida Nellros .
 
-Contributions by Isaac Kim and Fred Leger.
+Original created by Peter Mosmans, with contributions by Isaac Kim and Fred Leger.
